@@ -29,14 +29,14 @@ let client = AgoraRTC.createClient({
     codec: "vp8",
 });
 
-client.init("b78dfadc51914daeb2cbebe9e4ae3818", function() {
+client.init("88ca714efa664ee48540b1182f6caa9c", function() {
     console.log("client initialized");
 }, function(err) {
     console.log("client init failed ", err);
 });
 
 // Join a channel
-client.join("2MqdX72IjMDygklvphso7bSqyzda5xoi40Ho", "myChannel", null, (uid) => {
+client.join("00688ca714efa664ee48540b1182f6caa9cIAAjrfC/Skl70ZzaMwLyfokYusHJrr7aa2nQSKtp3p//C1qHkRcAAAAAEAA7+TVQ75b+YAEAAQDwlv5g", "sandeep", null, (uid) => {
     // Create a local stream
     client.join();
 }, handleError);
@@ -44,13 +44,6 @@ let localStream = AgoraRTC.createStream({
     audio: true,
     video: true,
 });
-// Initialize the local stream
-localStream.init(() => {
-    // Play the local stream
-    localStream.play("me");
-    // Publish the local stream
-    client.publish(localStream, handleError);
-}, handleError);
 
 // Subscribe to the remote stream when it is published
 client.on("stream-added", function(evt) {
@@ -77,5 +70,10 @@ client.on("peer-leave", function(evt) {
     stream.close();
     removeVideoStream(streamId);
 });
-//client.enableVideo();
-//https://console.agora.io/invite?sign=5d00add662706fee5c9f47765d2ce6e0%3Aefd0609b9a7e83e4b3cb24268c4bd2eae32cb8c99e878b62ff2e21836130106d
+// Initialize the local stream
+localStream.init(() => {
+    // Play the local stream
+    localStream.play("sandeep");
+    // Publish the local stream
+    client.publish(localStream, handleError);
+}, handleError);

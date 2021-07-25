@@ -29,14 +29,14 @@ let client = AgoraRTC.createClient({
     codec: "vp8",
 });
 
-client.init("b78dfadc51914daeb2cbebe9e4ae3818", function() {
+client.init("88ca714efa664ee48540b1182f6caa9c", function() {
     console.log("client initialized");
 }, function(err) {
     console.log("client init failed ", err);
 });
 
 // Join a channel
-client.join("006b78dfadc51914daeb2cbebe9e4ae3818IACfJNirGSm1rFMzZ6o1K2C+awNmtQEnIbxOU6avCEsE7MKSUqwAAAAAEAD7XOPUQ6H+YAEAAQDeoP5g", "me", null, (uid) => {
+client.join("00688ca714efa664ee48540b1182f6caa9cIADxJIigrtgkPg9njJ7ipnNuemkOLJvScLSqwRpgSl5x8VqHkRcAAAAAEAA7+TVQ0Lr+YAEAAQDRuv5g", "sandeep", null, (uid) => {
     // Create a local stream
     client.join();
 }, handleError);
@@ -74,7 +74,7 @@ client.on("peer-leave", function(evt) {
 // Initialize the local stream
 localStream.init(() => {
     // Play the local stream
-    localStream.play("me");
+    localStream.play("sandeep");
     // Publish the local stream
     client.publish(localStream, handleError);
 }, handleError);

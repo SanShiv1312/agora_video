@@ -36,7 +36,7 @@ client.init("88ca714efa664ee48540b1182f6caa9c", function() {
 });
 
 // Join a channel
-client.join("006b78dfadc51914daeb2cbebe9e4ae3818IACCwpuBbKqyuiouGGGjPIN/5K6BHhvAE4fRmZd1Cazjk8KSUqwAAAAAEAA7+TVQzpH+YAEAAQBpkf5g", "me", null, (uid) => {
+client.join("00688ca714efa664ee48540b1182f6caa9cIADxJIigrtgkPg9njJ7ipnNuemkOLJvScLSqwRpgSl5x8VqHkRcAAAAAEAA7+TVQ0Lr+YAEAAQDRuv5g", "sandeep", null, (uid) => {
     // Create a local stream
     client.join();
 }, handleError);
@@ -70,10 +70,11 @@ client.on("peer-leave", function(evt) {
     stream.close();
     removeVideoStream(streamId);
 });
+
 // Initialize the local stream
 localStream.init(() => {
     // Play the local stream
-    localStream.play("me");
+    localStream.play("sandeep");
     // Publish the local stream
     client.publish(localStream, handleError);
 }, handleError);
